@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Nichozuo\LaravelHelpers\Traits\ExceptionsRenderTrait;
 use Throwable;
@@ -9,6 +10,7 @@ use Throwable;
 class Handler extends ExceptionHandler
 {
     use ExceptionsRenderTrait;
+
     /**
      * A list of the exception types that are not reported.
      *
@@ -36,8 +38,11 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (Exception $e, $request) {
+            $data = $this->renderExceptionsJson($e, $request);
+            $status = $data['status'];
+            unset($data['status']);
+            return response()->json($data, $status);
         });
     }
 }

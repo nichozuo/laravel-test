@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Nichozuo\LaravelHelpers\Helper\SQLHelper;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // 记录sql日志
+        SQLHelper::SqlLog();
     }
 
     /**
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Fix unique key is too long
+//        SQLHelper::Schema();
     }
 }
