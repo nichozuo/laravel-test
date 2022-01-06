@@ -9,7 +9,7 @@ class DocsControllerTest extends TestCase
     public function testGetMenu()
     {
         $this->go(__METHOD__, [
-            'type' => 'database'
+            'type' => 'modules'
         ]);
     }
 

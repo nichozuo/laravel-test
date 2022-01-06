@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Nichozuo\LaravelHelpers\Exceptions\Err;
 
 /**
- * 房子
+ * @intro 房子
  * Class HousesController
  * @package App\Modules\Admin
  */
