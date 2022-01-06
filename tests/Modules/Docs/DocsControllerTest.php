@@ -16,8 +16,8 @@ class DocsControllerTest extends TestCase
     public function testGetContent()
     {
         $this->go(__METHOD__, [
-            'type' => 'readme',
-            'key' => '/1 test/haha/haha.md'
+            'type' => 'modules',
+            'key' => 'Admin\\Temp\\HousesController@list'
         ]);
     }
 }

@@ -18,6 +18,7 @@ class HousesController extends Controller
 {
     /**
      * @intro 列表
+     * @responseParams id,string,哈哈哈
      * @param Request $request
      * @return mixed
      * @throws Err
@@ -26,6 +27,7 @@ class HousesController extends Controller
     {
         $params = $request->validate([
             'name' => 'nullable|string', // 名称
+            'name1' => 'nullable|string', // 名称
         ]);
         return Houses::ifWhereLike($params, 'name')
             ->order()
